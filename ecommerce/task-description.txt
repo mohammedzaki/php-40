@@ -1,0 +1,6 @@
+1. Web Task : Login and Logout Page( verify if logged or not and forward to correct page). 
+    - in menu.php
+    - page add-new product require user logged in to work
+    - (optional) after login redirect the user to the last opened page (add-new product)
+2. Web Task : Product and Cart Cookies( add products at Cart and control it). 
+3. Web Task : Verify Image upload using PHP.
