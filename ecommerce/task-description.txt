@@ -11,3 +11,4 @@ New Tasks
 1. Insert Multiple products at same time
 2. Update product
 3. Delete product
+4. Convert Product to class (optional)

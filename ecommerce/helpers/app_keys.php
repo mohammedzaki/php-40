@@ -10,3 +10,7 @@ define('USERNAME', 'user_name');
 define('CART_DATA', 'cart_data');
 
 define('BASE_DIR', '/Applications/mampstack-7.4.10-0/apache2/htdocs/php-40/ecommerce');
+
+class App_Keys {
+    const USERNAME = 'user_name';
+}

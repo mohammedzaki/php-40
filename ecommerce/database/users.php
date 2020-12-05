@@ -9,7 +9,7 @@ function checkUser($username, $password) {
     $result = execute_select_one($sql);
 
     if (count($result) > 0) {
-        save_into_session(USERNAME, $result['username']);
+        save_into_session(App_Keys::USERNAME, $result['username']);
         return true;
     } else {
         return false;
