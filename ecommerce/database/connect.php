@@ -8,19 +8,19 @@
 
 function connect_to_db() {
 
-    $servername = "localhost_.eg"; // "127.0.0.1"
+    $servername = "localhost"; // "127.0.0.1"
 
     $username = "db_user";
     $password = "3qtMWAAKLBfS1U2j";
+    $dbname = "ecommerce";
 
-
-    $con = mysqli_connect($servername, $username, $password);
-
+    $con = mysqli_connect($servername, $username, $password, $dbname);
 
     if (!$con) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    echo "Connected successfully";
+    //echo "Connected successfully";
 
+    return $con;
 }
