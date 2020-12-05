@@ -4,3 +4,10 @@
     - (optional) after login redirect the user to the last opened page (add-new product)
 2. Web Task : Product and Cart Cookies( add products at Cart and control it). 
 3. Web Task : Verify Image upload using PHP.
+
+======
+
+New Tasks
+1. Insert Multiple products at same time
+2. Update product
+3. Delete product

@@ -31,14 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 </form>
 
-<!--<form action="/php-40/ecommerce/helpers/file_uploader.php" method="post" enctype="multipart/form-data">-->
-<!---->
-<!--    <input type="file" required name="file" size="10" />-->
-<!--    <br />-->
-<!--    <input type="submit" value="Upload File" />-->
-<!---->
-<!--</form>-->
-
 
 </body>
 </html>
