@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {
+      "OOP\\": "src/",
+      "Data\\": "data/"
+    }
+  }
+}

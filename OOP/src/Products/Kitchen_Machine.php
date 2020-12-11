@@ -8,8 +8,6 @@
 
 namespace OOP\Products;
 
-use OOP\Products\Base_Product;
-
 class Kitchen_Machine extends Base_Product {
 
 
