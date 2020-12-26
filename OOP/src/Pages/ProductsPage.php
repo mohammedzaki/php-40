@@ -6,7 +6,7 @@
  * Time: 10:30 AM
  */
 
-namespace OOP\Pages;
+namespace PPages;
 
 use OOP\Products\Kitchen_Machine;
 

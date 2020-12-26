@@ -28,18 +28,11 @@ class ComposerStaticInitd24d8c85f60cc36984cd57487022dfe2
         ),
     );
 
-    public static $classMap = array (
-        'OOP\\Pages\\ProductsPage' => __DIR__ . '/../..' . '/src/Pages/ProductsPage.php',
-        'OOP\\Products\\Base_Product' => __DIR__ . '/../..' . '/src/Products/Base_Product.php',
-        'OOP\\Products\\Kitchen_Machine' => __DIR__ . '/../..' . '/src/Products/Kitchen_Machine.php',
-    );
-
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitd24d8c85f60cc36984cd57487022dfe2::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitd24d8c85f60cc36984cd57487022dfe2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitd24d8c85f60cc36984cd57487022dfe2::$classMap;
 
         }, null, ClassLoader::class);
     }
