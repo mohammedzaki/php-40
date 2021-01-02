@@ -25,19 +25,9 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-
-                        {{--{{ From::model($product, [--}}
-                        {{--'route' => ['products.update', $product->id],--}}
-                        {{--'method' => 'put'--}}
-                        {{--])  }}--}}
-
-                        {{--<label>{{ $product->id }}</label>--}}
-                        {{--<label>{{ $product->name }}</label>--}}
-                        {{--<label>{{ $product->price }}</label>--}}
-                        {{--<label>{{ $product->create_at }}</label>--}}
-
-                        {{--{{ Form::close() }}--}}
-
+                        {{ Form::model($product, ['route' => ['products.update', $product->id], 'method' => 'put']) }}
+                            @include('admin.products._form')
+                        {{ Form::close() }}
                     </div>
                     <!-- /.card-body -->
                 </div>

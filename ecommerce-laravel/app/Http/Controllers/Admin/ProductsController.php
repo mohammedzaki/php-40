@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\DB;
+use App\Http\Requests\StoreProductRequest;
 
 class ProductsController extends Controller
 {
@@ -13,11 +16,15 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all();
+        $cat = Category::find(1);
 
-        return view('admin.products.index', ['products' => $products]);
+        return $cat->products;
+
+        //$products = Product::all();
+
+        //return view('admin.products.index', ['products' => $products]);
     }
 
     /**
@@ -27,7 +34,15 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
+        $categories = [];
+
+        $cats = Category::all();
+
+        foreach ($cats as $cat) {
+            $categories[$cat->id] = $cat->name;
+        }
+
+        return view('admin.products.create', ['categories' => $categories]);
     }
 
     /**
@@ -36,7 +51,7 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         $all = $request->all();
 
@@ -65,8 +80,16 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::find($id);
-        return view('admin.products.edit', ['product' => $product]);
+        $product    = Product::find($id);
+        $categories = [];
+
+        $cats = Category::all();
+
+        foreach ($cats as $cat) {
+            $categories[$cat->id] = $cat->name;
+        }
+
+        return view('admin.products.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -78,7 +101,12 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $all     = $request->all();
+        $product = Product::find($id);
+
+        $product->update($all);
+
+        return redirect()->route('products.edit', $product->id);
     }
 
     /**
@@ -89,6 +117,10 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+
+        $product->delete();
+
+        return redirect()->route('products.index');
     }
 }

@@ -17,13 +17,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [App\Http\Controllers\Home::class, 'index']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 
 Route::prefix('/admin')->group(function () {
 
-    Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('dashboard.index');
+    Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('dashboard.index')->middleware('auth');
 
-    Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class);
+    Route::resource('/products', App\Http\Controllers\Admin\ProductsController::class)->middleware('auth');
 
 });

@@ -43,6 +43,11 @@
                                     <td>{{ $product->price }}</td>
                                     <td>{{ $product->created_at }}</td>
                                     <td>
+                                        {{ Form::open(['method' => 'DELETE', 'route' => ['products.destroy', $product->id], 'onsubmit' => 'return ConfirmDelete()', 'style' => 'display: inline-block;']) }}
+                                        {{ Form::button('delete', array('type' => 'submit', 'class' => 'btn btn-danger')) }}
+
+                                        {{ Form::close() }}
+
                                         {{ link_to_route('products.edit', 'Edit', ['product' => $product->id], ['class' => 'btn btn-primary']) }}
                                     </td>
                                 </tr>
@@ -56,7 +61,11 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function ConfirmDelete() {
+            return confirm("Are your sure to delete this product?");
+        }
+    </script>
 
 
 
